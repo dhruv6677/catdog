@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import os
 from flask_cors import CORS, cross_origin
-from com_in_ineuron_ai_utils.utils import decodeImage
+from object_classification_utils.utils import decodeImage
 from predict import dogcat
 
 os.putenv('LANG', 'en_US.UTF-8')
