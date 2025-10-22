@@ -11,21 +11,20 @@ app = Flask(__name__)
 CORS(app)
 
 
-
-
-#@cross_origin()
+# @cross_origin()
 class ClientApp:
     def __init__(self):
         self.filename = "inputImage.jpg"
         self.classifier = dogcat(self.filename)
 
 
+clApp = ClientApp()
+
 
 @app.route("/", methods=['GET'])
 @cross_origin()
 def home():
     return render_template('index.html')
-    
 
 
 @app.route("/predict", methods=['POST'])
@@ -37,8 +36,8 @@ def predictRoute():
     return jsonify(result)
 
 
-#port = int(os.getenv("PORT"))
+# port = int(os.getenv("PORT"))
 if __name__ == "__main__":
     clApp = ClientApp()
-    #app.run(host='0.0.0.0', port=port)
+    # app.run(host='0.0.0.0', port=port)
     app.run(host='0.0.0.0', port=8000, debug=True)
